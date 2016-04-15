@@ -38,8 +38,7 @@ __kernel void sieve(  __global uint* gsieve_all,
   
   uint poff = 0;
   
-  // NVidia drivers version 343.x+ contains a bug, can't unroll this loop
-  // #pragma unroll
+#pragma unroll
   for(int b = 0; b < S1RUNS; b++) {
     uint nps = nps_all[b];
     const uint var = LSIZE >> nps;
@@ -57,7 +56,6 @@ __kernel void sieve(  __global uint* gsieve_all,
     poff += 1u << nps;
     pos = mad24((uint)(fentry * fiprime), prime, pos) - entry;
     pos = mad24((uint)((int)pos < (int)0), prime, pos);
-    pos = mad24((uint)((int)pos < (int)0), prime, pos); // NVidia requires repeat this, why?
     pos = mad24(lpoff, prime, pos);
     
     uint4 vpos = {pos,

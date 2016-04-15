@@ -36,10 +36,5 @@ else()
   find_library(PROTOBUF_LIBRARY protobuf)
 endif()
 
-find_path(OPENCL_INCLUDE_DIRECTORY CL/cl.h
-  PATHS /opt/AMDAPP/include NO_DEFAULT_PATH
-)
-
-find_path(OPENCL_LIBRARY OpenCL
-  PATHS /opt/AMDAPP/lib/x86_64 NO_DEFAULT_PATH
-)
+find_path(OPENCL_INCLUDE_DIRECTORY CL/cl.h PATHS /usr/include NO_DEFAULT_PATH)
+find_library(OPENCL_LIBRARY OpenCL PATHS /usr/lib/ NO_DEFAULT_PATH)

@@ -67,6 +67,7 @@ __kernel void getconfig(__global config_t* conf)
 	c.WIDTH_ = WIDTH;
 	c.PCOUNT_ = PCOUNT;
 	c.TARGET_ = TARGET;
+	c.WINDOWSIZE_ = SIZE;
 	*conf = c;
 }
 

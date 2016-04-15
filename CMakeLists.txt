@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 2.8)
 
 option(STATIC_BUILD "Build with static libraries on Linux")
 
+set(CMAKE_CXX_FLAGS "-march=native -O2 -pipe")
+
 set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
   ${CMAKE_SOURCE_DIR}/cmake
 )
