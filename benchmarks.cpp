@@ -832,8 +832,8 @@ void sieveTestBenchmark(cl_command_queue queue,
       clSetKernelArg(mSieveSearch, 5, sizeof(cl_int), &hid);
       clSetKernelArg(mSieveSearch, 6, sizeof(cl_uint), &multiplierSize);
       size_t globalSize[] = { mConfig.SIZE*mConfig.STRIPES/2, 1, 1 };
-      size_t localSize[] = { 256, 1 };
-      OCL(clEnqueueNDRangeKernel(queue, mSieveSearch, 1, 0, globalSize, localSize, 0, 0, 0));
+      //size_t localSize[] = { 256, 1 };
+      OCL(clEnqueueNDRangeKernel(queue, mSieveSearch, 1, 0, globalSize, 0, 0, 0, 0));
           
       candidatesCountBuffers[i].copyToHost(queue, false);   
     }
